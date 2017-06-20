@@ -1,3 +1,5 @@
+require 'twitter'
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +12,21 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    set_up_twitter
+
+    tweets = @client.user_timeline(@user.twitter_id, count: 5)
+    @user.last_tweet = tweets.first.full_text
+
+    # tweets.each { |tweet| puts tweet.full_text }
+  end
+
+  def set_up_twitter
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key = "DFnbUzF6jE0HPWaouP7ToimYj"
+      config.consumer_secret = "ytpWo9iXUfk6XfTb7ekWmoKaPY4RQOvCE6gZLctZsy8Tz8C0pL"
+      config.access_token = "4188181033-5G66bV66skfnZxCpBRWDrZGPCuHITwzkVp9XeFl"
+      config.access_token_secret = "XAEYKzGBGC50yqjUfdRoK5rvBLIKhzRVibd0IuiGGcqOq"
+    end
   end
 
   # GET /users/new
