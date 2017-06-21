@@ -7,6 +7,13 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+
+    set_up_twitter
+
+    @users.each do |user|
+      tweets = @client.user_timeline(user.twitter_id, count: 5)
+      user.last_tweet = tweets.first.full_text
+    end
   end
 
   # GET /users/1
@@ -15,7 +22,6 @@ class UsersController < ApplicationController
     set_up_twitter
 
     tweets = get_last_tweet
-
     get_five_last_tweets(tweets)
   end
 
@@ -31,7 +37,6 @@ class UsersController < ApplicationController
   def get_last_tweet
     tweets = @client.user_timeline(@user.twitter_id, count: 5)
     @user.last_tweet = tweets.first.full_text
-    tweets
   end
 
   def set_up_twitter
@@ -93,13 +98,13 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :job_tittle, :last_tweet, :twitter_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:name, :job_tittle, :last_tweet, :twitter_id)
+  end
 end

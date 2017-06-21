@@ -15,9 +15,9 @@ body, html {
 
 #retangle {
   background: #5D1EB2;
-  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 88%, 0 54%);
-  clip-path: polygon(0 0, 100% 0%, 100% 88%, 0 54%);
-  height: 120%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 55%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 55%);
+  height: 150%;
 }
 
 .logo {
@@ -105,7 +105,7 @@ body, html {
 
 #last_tweet {
   margin-top: 15px;
-  color: #BBBBBB;
+  color: #666666;
   font-size: 12px;
 }
 
