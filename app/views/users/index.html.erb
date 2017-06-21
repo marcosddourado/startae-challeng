@@ -16,36 +16,52 @@
 
 <div class="latest_tweets">
   <div> <%= render :partial => 'svg/logo_twitter' %> </div>
-  <div id="text"> Latest tweets </div>
+  <div id="text"> Latest tweets</div>
 </div>
 
-<h1>Users</h1>
+<div class="cards_container">
+  <div class="card">
+    <div class="avatar">
+      <%= image_tag("rafael-torales.jpg", :alt => "Avatar", :size => "250x250") %>
+    </div>
+    <div class="informations">
+      <p id="name"> Rafael Torales</p>
+      <p id="twitter_account">@rafaeltorales</p>
+      <p id="job_tittle">Designer</p>
+      <p id="last_tweet">"SAOSPDOPAKSD aojdasdoijasiodjaoijsd asdokaopsdkasd"</p>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Job tittle</th>
-    <th>Last tweet</th>
-    <th>Twitter</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<!--<h1>Users</h1>-->
 
-  <tbody>
-  <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.job_tittle %></td>
-        <td><%= user.last_tweet %></td>
-        <td><%= user.twitter_id %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<!--<table>-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th>Name</th>-->
+<!--<th>Job tittle</th>-->
+<!--<th>Last tweet</th>-->
+<!--<th>Twitter</th>-->
+<!--<th colspan="3"></th>-->
+<!--</tr>-->
+<!--</thead>-->
+
+<!--<tbody>-->
+<!--
+<% @users.each do |user| %>-->
+    <!--<tr>-->
+    <!--<td><%= user.name %></td>-->
+    <!--<td><%= user.job_tittle %></td>-->
+    <!--<td><%= user.last_tweet %></td>-->
+    <!--<td><%= user.twitter_id %></td>-->
+    <!--<td><%= link_to 'Show', user %></td>-->
+    <!--<td><%= link_to 'Edit', edit_user_path(user) %></td>-->
+    <!--<td><%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?'} %></td>-->
+    <!--</tr>-->
+    <!--
+<% end %>-->
+<!--</tbody>-->
+<!--</table>-->
 
 <br>
 
