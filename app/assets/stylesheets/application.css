@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+    font-family: 'Proxima Nova EB';
+    src:url('ProximaNova-Extrabold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Proxima Nova Light';
+    src:url('ProximaNova-Light.otf') format('truetype');
+}
+
