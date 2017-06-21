@@ -21,14 +21,15 @@ class UsersController < ApplicationController
   def show
     set_up_twitter
 
-    tweets = get_last_tweet
-    get_five_last_tweets(tweets)
+    get_last_tweet
+    get_five_last_tweets
   end
 
-  def get_five_last_tweets(tweets)
+  def get_five_last_tweets
     last_tweets = ''
+    tweets = @client.user_timeline(@user.twitter_id, count: 5)
     tweets.each do |tweet|
-      last_tweets += tweet.full_text + '\n'
+      last_tweets += tweet.full_text + '=='
     end
 
     @user.five_last_tweets = last_tweets
