@@ -19,10 +19,6 @@ body, html {
   height: 150%;
 }
 
-.logo {
-  margin: 40px;
-}
-
 .convocation {
   margin-left: 40px;
   margin-top: 185px;
@@ -37,13 +33,39 @@ body, html {
 }
 
 .tittle {
-  color: white;
   font-family: "Proxima Nova EB";
   font-weight: bolder;
   font-size: 85px;
   margin-left: -5px;
   margin-bottom: 40px;
 }
+
+
+@media (max-width: 860px) {
+  .starte_logo {
+    background-image: url('logo-symbol.svg');
+    width: 23px;
+    height: 26px;
+  }
+
+  .tittle {
+    color: black;
+  }
+}
+
+@media (max-width: 2500px) {
+  .starte_logo {
+    background-image: url('startae-logo.svg');
+    width: 147px;
+    height: 33px;
+    margin-left: 40px;
+  }
+
+  .tittle {
+    color: white;
+  }
+}
+
 
 .latest_tweets {
   font-family: "Proxima Nova Light";
@@ -81,7 +103,7 @@ body, html {
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .informations {
@@ -111,8 +133,8 @@ body, html {
 
 .avatar {
   margin-top: 10px;
-  width:250px;
-  height:250px;
+  width: 250px;
+  height: 250px;
   padding: 0;
   border-radius: 5px;
   display: inline-block
